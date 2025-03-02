@@ -2,19 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Projects</title>
+    <title>Projects</title>
     <style>
         /* Some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Adjust as needed */
+            flex-wrap: wrap;
+            padding: 20px;
+            min-height: 100vh;
         }
         .tile {
             position: relative;
             display: inline-block;
-            margin: 10px;
+            margin: 15px;
         }
         .tile img {
             width: 300px;
@@ -62,6 +69,22 @@
                 <img src="IMG_6832.jpg" alt="Sourdough">
                 <div class="overlay">
                     <span>Sourdough</span>
+                </div>
+            </a>
+        </div>
+        <div class="tile">
+            <a href="lamps/index.html">
+                <img src="lamps/IMG_7524.jpeg" alt="Lamps">
+                <div class="overlay">
+                    <span>Lamps</span>
+                </div>
+            </a>
+        </div>
+        <div class="tile">
+            <a href="kids-lamps/index.html">
+                <img src="kids-lamps/IMG_7848.jpeg" alt="Kids Lamps">
+                <div class="overlay">
+                    <span>Kids Lamps</span>
                 </div>
             </a>
         </div>
