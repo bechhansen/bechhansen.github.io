@@ -2,37 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Some basic styling */
+        /* Nordic design theme */
+        :root {
+            --primary-color: #39424E;
+            --accent-color: #A27250;
+            --bg-color: #F8F7F3;
+            --card-bg: #ffffff;
+            --text-color: #2E3440;
+            --overlay-bg: rgba(46, 52, 64, 0.8);
+            --font-main: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: var(--font-main);
             margin: 0;
             padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
+        
+        header {
+            background-color: var(--primary-color);
+            color: #ECEFF4;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-weight: 300;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .tagline {
+            font-style: normal;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
         .container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 20px;
-            min-height: 80vh;
-            align-content: center;
-            justify-content: center;
+            grid-gap: 40px;
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
         }
+        
         .tile {
             position: relative;
             display: block;
             width: 100%;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
         }
+        
+        .tile:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
         .tile img {
             width: 100%;
-            height: 300px;
+            height: 350px;
             object-fit: cover;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            display: block;
+            filter: saturate(0.9);
         }
+        
         .tile .overlay {
             position: absolute;
             top: 0;
@@ -40,30 +88,80 @@
             right: 0;
             bottom: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 30px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
+            background-color: var(--overlay-bg);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
+        
         .tile:hover .overlay {
             opacity: 1;
         }
-        .tile .overlay span {
+        
+        .tile .overlay-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ECEFF4;
+        }
+        
+        .tile .overlay-icon {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        .tile .overlay-desc {
+            font-size: 0.9rem;
+            max-width: 80%;
             text-align: center;
+            opacity: 0.9;
+            font-weight: 300;
+            color: #E5E9F0;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: #D8DEE9;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 40px auto;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>PROJECTS</h1>
+        <div class="tagline">CRAFTED BY HAND, GUIDED BY CURIOSITY</div>
+    </header>
+    
     <div class="container">
         <div class="tile">
             <a href="https://rover.monz.dk/">
                 <img src="IMG_5982.png" alt="Rover">
                 <div class="overlay">
-                    <span>Rover</span>
+                    <div class="overlay-icon"><i class="fas fa-robot"></i></div>
+                    <div class="overlay-title">Rover</div>
+                    <div class="overlay-desc">Autonomous robotics project with custom electronics and programming</div>
                 </div>
             </a>
         </div>
@@ -71,7 +169,9 @@
             <a href="https://baking.monz.dk/">
                 <img src="IMG_6832.jpg" alt="Sourdough">
                 <div class="overlay">
-                    <span>Sourdough</span>
+                    <div class="overlay-icon"><i class="fas fa-bread-slice"></i></div>
+                    <div class="overlay-title">Sourdough</div>
+                    <div class="overlay-desc">Artisanal bread making experiments and recipes</div>
                 </div>
             </a>
         </div>
@@ -79,7 +179,9 @@
             <a href="lamps/index.html">
                 <img src="lamps/IMG_7524.jpeg" alt="Lamps">
                 <div class="overlay">
-                    <span>Lamps</span>
+                    <div class="overlay-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="overlay-title">Lamps</div>
+                    <div class="overlay-desc">Custom lighting designs and fabrication</div>
                 </div>
             </a>
         </div>
@@ -87,11 +189,17 @@
             <a href="kids-lamps/index.html">
                 <img src="kids-lamps/IMG_7848.jpeg" alt="Kids Lamps">
                 <div class="overlay">
-                    <span>Kids Lamps</span>
+                    <div class="overlay-icon"><i class="fas fa-child"></i></div>
+                    <div class="overlay-title">Kids Lamps</div>
+                    <div class="overlay-desc">Fun and creative lighting projects for children's spaces</div>
                 </div>
             </a>
         </div>
         <!-- Add more tiles for other projects as needed -->
     </div>
+    
+    <footer>
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
 </body>
 </html>

@@ -2,58 +2,190 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lamp Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #39424E;
+            --accent-color: #A27250;
+            --light-color: #D8DEE9;
+            --bg-color: #F8F7F3;
+            --card-bg: #ffffff;
+            --text-color: #2E3440;
+            --font-main: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: var(--font-main);
             margin: 0;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
-        h1 {
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 2rem;
             text-align: center;
-            margin-bottom: 30px;
+            position: relative;
         }
+        
+        h1 {
+            margin: 0;
+            font-weight: 300;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .back-link {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .main-content {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .project-description {
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 60px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .project-description h2 {
+            margin-top: 0;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--text-color);
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .project-description h2 i {
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+        
+        .project-description p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
         .gallery {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 40px;
         }
+        
         .gallery-item {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            filter: saturate(0.9);
         }
-        .gallery-item:hover {
+        
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-container:hover .gallery-item {
             transform: scale(1.02);
         }
-        .back-link {
-            display: inline-block;
-            margin: 20px 0;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 60px;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
-        .back-link:hover {
-            text-decoration: underline;
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .back-link {
+                position: static;
+                transform: none;
+                margin-bottom: 15px;
+                display: inline-block;
+            }
+            
+            header {
+                text-align: left;
+                padding-left: 30px;
+            }
+            
+            .project-description {
+                padding: 30px 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="../index.html" class="back-link">&larr; Back to Projects</a>
-    <h1>Lamp Projects</h1>
+    <header>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> BACK</a>
+        <h1>LAMP DESIGN</h1>
+    </header>
     
-    <div class="gallery">
-        <img src="IMG_7524.jpeg" alt="Lamp design 1" class="gallery-item">
-        <img src="IMG_7528.jpeg" alt="Lamp design 2" class="gallery-item">
-        <img src="IMG_7536.jpeg" alt="Lamp design 3" class="gallery-item">
+    <div class="main-content">
+        <div class="project-description">
+            <h2><i class="fas fa-lightbulb"></i> Light & Form</h2>
+            <p>These lamp projects explore the relationship between light, material, and space. Minimalist in design yet attentive to detail, each piece aims to balance functionality with aesthetic simplicity. Natural materials and clean lines create a sense of calm while providing practical lighting solutions for modern living spaces.</p>
+        </div>
+        
+        <div class="gallery">
+            <div class="image-container">
+                <img src="IMG_7524.jpeg" alt="Minimalist lamp design" class="gallery-item">
+            </div>
+            <div class="image-container">
+                <img src="IMG_7528.jpeg" alt="Sculptural lighting element" class="gallery-item">
+            </div>
+            <div class="image-container">
+                <img src="IMG_7536.jpeg" alt="Nordic inspired lamp" class="gallery-item">
+            </div>
+        </div>
     </div>
+    
+    <footer>
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
 </body>
 </html>
