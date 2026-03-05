@@ -1,0 +1,197 @@
+/* ── Shared variables ── */
+:root {
+    --primary-color: #39424E;
+    --accent-color: #A27250;
+    --light-color: #D8DEE9;
+    --bg-color: #F8F7F3;
+    --text-color: #2E3440;
+    --header-bg: #39424E;
+    --font-main: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ── Base ── */
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ── Header ── */
+header {
+    background-color: var(--header-bg);
+    color: var(--light-color);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.back-link {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.back-link i {
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+}
+
+/* ── Content ── */
+.main-content {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.project-description {
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 60px;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.project-description h2 {
+    margin-top: 0;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.project-description h2 i {
+    color: var(--accent-color);
+    margin-right: 15px;
+}
+
+.project-description p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* ── Gallery ── */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.4s ease;
+    filter: saturate(0.9);
+    cursor: zoom-in;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container:hover .gallery-item {
+    transform: scale(1.02);
+}
+
+/* ── Footer ── */
+footer {
+    background-color: var(--header-bg);
+    color: var(--light-color);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 60px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .back-link {
+        position: static;
+        transform: none;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+
+    .project-description {
+        padding: 30px 25px;
+    }
+}
+
+/* ── Lightbox ── */
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+#lightbox img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    cursor: default;
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+#lightbox-close:hover {
+    opacity: 1;
+}
