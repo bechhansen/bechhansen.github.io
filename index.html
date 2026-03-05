@@ -10,13 +10,13 @@
         :root {
             --primary-color: #39424E;
             --accent-color: #A27250;
-            --bg-color: #F8F7F3;
+            --bg-color: #2E3440;
             --card-bg: #ffffff;
             --text-color: #2E3440;
             --overlay-bg: rgba(46, 52, 64, 0.8);
             --font-main: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
-        
+
         body {
             font-family: var(--font-main);
             margin: 0;
@@ -52,25 +52,17 @@
         .container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 40px;
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 0 20px;
+            grid-gap: 0;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
         }
-        
+
         .tile {
             position: relative;
             display: block;
             width: 100%;
-            border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-        }
-        
-        .tile:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
         
         .tile img {
@@ -138,7 +130,7 @@
             color: #D8DEE9;
             text-align: center;
             padding: 1.5rem;
-            margin-top: 60px;
+            margin-top: 0;
             font-size: 0.9rem;
             letter-spacing: 1px;
             font-weight: 300;
@@ -149,9 +141,13 @@
                 grid-template-columns: 1fr;
                 margin: 40px auto;
             }
-            
+
             header h1 {
                 font-size: 1.8rem;
+            }
+
+            .tile .overlay {
+                opacity: 1;
             }
         }
     </style>
