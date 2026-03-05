@@ -53,8 +53,8 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 0;
-            max-width: 100%;
-            margin: 0;
+            max-width: 1600px;
+            margin: 0 auto;
             padding: 0;
         }
 
@@ -63,11 +63,12 @@
             display: block;
             width: 100%;
             overflow: hidden;
+            aspect-ratio: 4 / 3;
         }
-        
+
         .tile img {
             width: 100%;
-            height: 350px;
+            height: 100%;
             object-fit: cover;
             display: block;
             filter: saturate(0.9);
@@ -75,10 +76,7 @@
 
         .tile:first-child {
             grid-column: 1 / -1;
-        }
-
-        .tile:first-child img {
-            height: 500px;
+            aspect-ratio: 16 / 7;
         }
         
         .tile .overlay {
