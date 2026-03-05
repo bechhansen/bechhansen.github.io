@@ -80,6 +80,14 @@
             display: block;
             filter: saturate(0.9);
         }
+
+        .tile:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .tile:first-child img {
+            height: 500px;
+        }
         
         .tile .overlay {
             position: absolute;
