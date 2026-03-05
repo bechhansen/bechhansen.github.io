@@ -31,6 +31,39 @@
             color: #ECEFF4;
             padding: 2rem;
             text-align: center;
+            position: relative;
+        }
+
+        #lang-switcher {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: inherit;
+            padding: 4px 8px;
+            font-family: var(--font-main);
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: border-color 0.2s;
+        }
+
+        #lang-switcher:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        #lang-switcher option {
+            background: var(--primary-color);
+            color: #ECEFF4;
+        }
+
+        [dir="rtl"] #lang-switcher {
+            right: auto;
+            left: 20px;
         }
         
         header h1 {
@@ -152,8 +185,8 @@
 </head>
 <body>
     <header>
-        <h1>PROJECTS</h1>
-        <div class="tagline">CRAFTED BY HAND, GUIDED BY CURIOSITY</div>
+        <h1 data-i18n="nav_title">PROJECTS</h1>
+        <div class="tagline" data-i18n="tagline">CRAFTED BY HAND, GUIDED BY CURIOSITY</div>
     </header>
     
     <div class="container">
@@ -162,8 +195,8 @@
                 <img src="IMG_5982.png" alt="Rover">
                 <div class="overlay">
                     <div class="overlay-icon"><i class="fas fa-robot"></i></div>
-                    <div class="overlay-title">Rover</div>
-                    <div class="overlay-desc">Autonomous robotics project with custom electronics and programming</div>
+                    <div class="overlay-title" data-i18n="rover_title">Rover</div>
+                    <div class="overlay-desc" data-i18n="rover_desc">Autonomous robotics project with custom electronics and programming</div>
                 </div>
             </a>
         </div>
@@ -172,8 +205,8 @@
                 <img src="wattzig/Print.png" alt="WattZig">
                 <div class="overlay">
                     <div class="overlay-icon"><i class="fas fa-bolt"></i></div>
-                    <div class="overlay-title">WattZig</div>
-                    <div class="overlay-desc">Open-source Zigbee power meter for 3-phase energy monitoring</div>
+                    <div class="overlay-title" data-i18n="wattzig_title">WattZig</div>
+                    <div class="overlay-desc" data-i18n="wattzig_desc">Open-source Zigbee power meter for 3-phase energy monitoring</div>
                 </div>
             </a>
         </div>
@@ -182,8 +215,8 @@
                 <img src="lamps/IMG_7536.jpeg" alt="Lamps">
                 <div class="overlay">
                     <div class="overlay-icon"><i class="fas fa-lightbulb"></i></div>
-                    <div class="overlay-title">Lamps</div>
-                    <div class="overlay-desc">Custom lighting designs and fabrication</div>
+                    <div class="overlay-title" data-i18n="lamps_title">Lamps</div>
+                    <div class="overlay-desc" data-i18n="lamps_desc">Custom lighting designs and fabrication</div>
                 </div>
             </a>
         </div>
@@ -192,8 +225,8 @@
                 <img src="kids-lamps/IMG_7848.jpeg" alt="Kids Lamps">
                 <div class="overlay">
                     <div class="overlay-icon"><i class="fas fa-child"></i></div>
-                    <div class="overlay-title">Kids Lamps</div>
-                    <div class="overlay-desc">Fun and creative lighting projects for children's spaces</div>
+                    <div class="overlay-title" data-i18n="kids_lamps_title">Kids Lamps</div>
+                    <div class="overlay-desc" data-i18n="kids_lamps_desc">Fun and creative lighting projects for children's spaces</div>
                 </div>
             </a>
         </div>
@@ -202,16 +235,19 @@
                 <img src="IMG_6832.jpg" alt="Sourdough">
                 <div class="overlay">
                     <div class="overlay-icon"><i class="fas fa-bread-slice"></i></div>
-                    <div class="overlay-title">Sourdough</div>
-                    <div class="overlay-desc">Artisanal bread making experiments</div>
+                    <div class="overlay-title" data-i18n="sourdough_title">Sourdough</div>
+                    <div class="overlay-desc" data-i18n="sourdough_desc">Artisanal bread making experiments</div>
                 </div>
             </a>
         </div>
         <!-- Add more tiles for other projects as needed -->
     </div>
     
-    <footer>
+    <footer data-i18n="footer_text">
         CRAFTED BY HAND, GUIDED BY CURIOSITY
     </footer>
+
+    <script src="translations.js"></script>
+    <script src="common.js"></script>
 </body>
 </html>

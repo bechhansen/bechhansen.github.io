@@ -6,6 +6,7 @@
     <title>WattZig</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../common.css">
+    <script src="../translations.js"></script>
     <style>
         .project-links {
             margin-top: 20px;
@@ -29,16 +30,16 @@
 </head>
 <body>
     <header>
-        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> BACK</a>
-        <h1>WATTZIG</h1>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="back">BACK</span></a>
+        <h1 data-i18n="wattzig_page_title">WATTZIG</h1>
     </header>
 
     <div class="main-content">
         <div class="project-description">
-            <h2><i class="fas fa-bolt"></i> Open Zigbee Power Meter</h2>
-            <p>WattZig is an open-source smart power meter reader built on the ESP32-C6. It reads 3-phase electrical measurements — voltage, current, active and reactive power, and power factor — via the DLMS protocol and transmits them wirelessly over Zigbee. It integrates directly with Home Assistant via ZHA, making detailed energy monitoring available without any cloud dependency.</p>
+            <h2><i class="fas fa-bolt"></i> <span data-i18n="wattzig_section_title">Open Zigbee Power Meter</span></h2>
+            <p data-i18n="wattzig_description">WattZig is an open-source smart power meter reader built on the ESP32-C6. It reads 3-phase electrical measurements — voltage, current, active and reactive power, and power factor — via the DLMS protocol and transmits them wirelessly over Zigbee. It integrates directly with Home Assistant via ZHA, making detailed energy monitoring available without any cloud dependency.</p>
             <div class="project-links">
-                <a href="https://github.com/bechhansen/wattzig" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                <a href="https://github.com/bechhansen/wattzig" target="_blank"><i class="fab fa-github"></i> <span data-i18n="wattzig_github">View on GitHub</span></a>
             </div>
         </div>
 
@@ -52,7 +53,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer data-i18n="footer_text">
         CRAFTED BY HAND, GUIDED BY CURIOSITY
     </footer>
 

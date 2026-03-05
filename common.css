@@ -131,6 +131,50 @@ footer {
     letter-spacing: 1px;
 }
 
+/* ── Language switcher ── */
+#lang-switcher {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: inherit;
+    padding: 4px 8px;
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+}
+
+#lang-switcher:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+#lang-switcher option {
+    background: var(--header-bg, #39424E);
+    color: var(--light-color, #D8DEE9);
+}
+
+/* ── RTL overrides ── */
+[dir="rtl"] .back-link {
+    left: auto;
+    right: 20px;
+}
+
+[dir="rtl"] .back-link i {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+[dir="rtl"] #lang-switcher {
+    right: auto;
+    left: 20px;
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
     header {
