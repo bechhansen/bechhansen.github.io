@@ -3,8 +3,8 @@
     --primary-color: #39424E;
     --accent-color: #A27250;
     --light-color: #D8DEE9;
-    --bg-color: #F8F7F3;
-    --text-color: #2E3440;
+    --bg-color: #2E3440;
+    --text-color: #D8DEE9;
     --header-bg: #39424E;
     --font-main: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -67,7 +67,7 @@ h1 {
 }
 
 .project-description {
-    background-color: white;
+    background-color: #3B4252;
     padding: 40px;
     margin-bottom: 60px;
     line-height: 1.8;
