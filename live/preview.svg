@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap');
+    </style>
+    <!-- Scanlines pattern -->
+    <pattern id="scanlines" width="1" height="4" patternUnits="userSpaceOnUse">
+      <rect width="1" height="3" fill="none"/>
+      <rect y="3" width="1" height="1" fill="rgba(0,0,0,0.07)"/>
+    </pattern>
+    <!-- Map tile pattern (simulated satellite/street tiles) -->
+    <pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#1a2535"/>
+      <line x1="0" y1="0" x2="40" y2="0" stroke="#243040" stroke-width="0.5"/>
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#243040" stroke-width="0.5"/>
+    </pattern>
+    <!-- Road pattern on map -->
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-blue">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-red">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#080b10"/>
+
+  <!-- ─── HEADER ─── -->
+  <rect width="800" height="52" fill="#080b10"/>
+  <line x1="0" y1="52" x2="800" y2="52" stroke="#527a9e" stroke-width="1"/>
+
+  <!-- ROVER title -->
+  <text x="20" y="28" font-family="monospace" font-size="18" font-weight="900" fill="#e8f6ff" letter-spacing="4">ROVER</text>
+  <text x="20" y="44" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="6">REMOTE MONITOR</text>
+
+  <!-- WS status (connected - green dot) -->
+  <circle cx="700" cy="24" r="4" fill="#3ddc84" filter="url(#glow-green)"/>
+  <text x="712" y="28" font-family="monospace" font-size="9" fill="#b8d4e8" letter-spacing="2">LIVE</text>
+  <!-- Clock -->
+  <text x="680" y="44" font-family="monospace" font-size="9" fill="#b8d4e8" letter-spacing="1">14:32:07</text>
+
+  <!-- ─── SIDEBAR ─── -->
+  <rect x="0" y="52" width="265" height="548" fill="#080b10"/>
+  <line x1="265" y1="52" x2="265" y2="600" stroke="#527a9e" stroke-width="1"/>
+
+  <!-- Sidebar inner padding wrapper - all cards start at x=14 -->
+
+  <!-- Card 1: Locomotion (red accent) -->
+  <rect x="14" y="66" width="237" height="68" fill="#0d1117" stroke="#527a9e" stroke-width="1"/>
+  <rect x="14" y="66" width="3" height="68" fill="#fc3d21"/>
+  <text x="28" y="82" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="3">LOCOMOTION</text>
+  <!-- State badge: FORWARD -->
+  <rect x="28" y="89" width="90" height="28" fill="none" stroke="#3ddc84" stroke-width="1"/>
+  <text x="73" y="108" font-family="monospace" font-size="11" font-weight="700" fill="#3ddc84" text-anchor="middle" letter-spacing="2">FORWARD</text>
+
+  <!-- Card 2: Drive (amber accent) -->
+  <rect x="14" y="144" width="237" height="76" fill="#0d1117" stroke="#527a9e" stroke-width="1"/>
+  <rect x="14" y="144" width="3" height="76" fill="#f0a500"/>
+  <text x="28" y="160" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="3">DRIVE</text>
+  <!-- SPD row -->
+  <text x="28" y="182" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="2">SPD</text>
+  <text x="70" y="182" font-family="monospace" font-size="13" fill="#3ddc84" letter-spacing="1">75</text>
+  <text x="90" y="182" font-family="monospace" font-size="9" fill="#b8d4e8">%</text>
+  <!-- RAD row -->
+  <text x="28" y="202" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="2">RAD</text>
+  <text x="70" y="202" font-family="monospace" font-size="13" fill="#3ddc84" letter-spacing="1">∞</text>
+
+  <!-- Card 3: Proximity (blue accent) -->
+  <rect x="14" y="230" width="237" height="86" fill="#0d1117" stroke="#527a9e" stroke-width="1"/>
+  <rect x="14" y="230" width="3" height="86" fill="#00c8f0"/>
+  <text x="28" y="246" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="3">PROXIMITY</text>
+  <text x="28" y="278" font-family="monospace" font-size="32" fill="#3ddc84" letter-spacing="1">142</text>
+  <text x="110" y="278" font-family="monospace" font-size="11" fill="#b8d4e8">cm</text>
+  <!-- Distance bar -->
+  <rect x="28" y="288" width="210" height="3" fill="#527a9e" rx="1"/>
+  <rect x="28" y="288" width="150" height="3" fill="#00c8f0" rx="1" filter="url(#glow-blue)"/>
+
+  <!-- Card 4: Stability (green accent) -->
+  <rect x="14" y="326" width="237" height="82" fill="#0d1117" stroke="#527a9e" stroke-width="1"/>
+  <rect x="14" y="326" width="3" height="82" fill="#3ddc84"/>
+  <text x="28" y="342" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="3">STABILITY</text>
+  <!-- Pitch -->
+  <text x="28" y="358" font-family="monospace" font-size="7" fill="#b8d4e8" letter-spacing="2">PITCH</text>
+  <text x="28" y="390" font-family="monospace" font-size="28" fill="#3ddc84">3.2</text>
+  <text x="80" y="390" font-family="monospace" font-size="11" fill="#b8d4e8">°</text>
+  <!-- Roll -->
+  <text x="130" y="358" font-family="monospace" font-size="7" fill="#b8d4e8" letter-spacing="2">ROLL</text>
+  <text x="130" y="390" font-family="monospace" font-size="28" fill="#3ddc84">-1.8</text>
+  <text x="198" y="390" font-family="monospace" font-size="11" fill="#b8d4e8">°</text>
+
+  <!-- Card 5: GPS (cyan accent) -->
+  <rect x="14" y="418" width="237" height="76" fill="#0d1117" stroke="#527a9e" stroke-width="1"/>
+  <rect x="14" y="418" width="3" height="76" fill="#00e5b0"/>
+  <text x="28" y="434" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="3">GPS</text>
+  <!-- FIX badge -->
+  <text x="28" y="456" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="2">FIX</text>
+  <text x="70" y="456" font-family="monospace" font-size="11" fill="#3ddc84" letter-spacing="1">3D FIX</text>
+  <!-- POS row -->
+  <text x="28" y="478" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="2">POS</text>
+  <text x="70" y="478" font-family="monospace" font-size="11" fill="#3ddc84" letter-spacing="1">55.6761 / 12.5683</text>
+
+  <!-- Card 6: Navigation (dim accent) -->
+  <rect x="14" y="504" width="237" height="76" fill="#0d1117" stroke="#527a9e" stroke-width="1"/>
+  <rect x="14" y="504" width="3" height="76" fill="#b8d4e8"/>
+  <text x="28" y="520" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="3">NAVIGATION</text>
+  <!-- SPD row -->
+  <text x="28" y="542" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="2">SPD</text>
+  <text x="70" y="542" font-family="monospace" font-size="13" fill="#3ddc84" letter-spacing="1">2.4</text>
+  <text x="96" y="542" font-family="monospace" font-size="9" fill="#b8d4e8">km/h</text>
+  <!-- CRS row -->
+  <text x="28" y="562" font-family="monospace" font-size="8" fill="#b8d4e8" letter-spacing="2">CRS</text>
+  <text x="70" y="562" font-family="monospace" font-size="13" fill="#3ddc84" letter-spacing="1">247</text>
+  <text x="99" y="562" font-family="monospace" font-size="9" fill="#b8d4e8">°</text>
+
+  <!-- ─── MAP PANEL ─── -->
+  <rect x="265" y="52" width="535" height="548" fill="#111820"/>
+
+  <!-- Map base grid -->
+  <rect x="265" y="52" width="535" height="548" fill="url(#mapgrid)"/>
+
+  <!-- Simulated map roads/terrain blocks -->
+  <!-- Water body -->
+  <rect x="380" y="120" width="180" height="90" fill="#1a2f45" rx="3" opacity="0.7"/>
+  <rect x="390" y="130" width="160" height="70" fill="#1e3550" rx="2" opacity="0.8"/>
+
+  <!-- Green area (park) -->
+  <rect x="320" y="250" width="100" height="60" fill="#1a2e1e" rx="2" opacity="0.8"/>
+  <rect x="500" y="300" width="80" height="50" fill="#1a2e1e" rx="2" opacity="0.8"/>
+
+  <!-- Road network -->
+  <!-- Main horizontal road -->
+  <line x1="265" y1="380" x2="800" y2="380" stroke="#2a3a4a" stroke-width="8"/>
+  <line x1="265" y1="380" x2="800" y2="380" stroke="#243040" stroke-width="1" stroke-dasharray="20,10"/>
+  <!-- Secondary horizontal -->
+  <line x1="265" y1="280" x2="800" y2="280" stroke="#243040" stroke-width="4"/>
+  <!-- Vertical road -->
+  <line x1="490" y1="52" x2="490" y2="600" stroke="#2a3a4a" stroke-width="8"/>
+  <line x1="490" y1="52" x2="490" y2="600" stroke="#243040" stroke-width="1" stroke-dasharray="20,10"/>
+  <!-- Another vertical -->
+  <line x1="620" y1="52" x2="620" y2="600" stroke="#243040" stroke-width="4"/>
+  <!-- Diagonal path -->
+  <line x1="350" y1="52" x2="450" y2="600" stroke="#243040" stroke-width="3"/>
+
+  <!-- City blocks -->
+  <rect x="300" y="60" width="55" height="40" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="365" y="60" width="50" height="40" fill="#162030" rx="1" opacity="0.5"/>
+  <rect x="510" y="60" width="60" height="50" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="640" y="70" width="70" height="45" fill="#162030" rx="1" opacity="0.5"/>
+  <rect x="720" y="60" width="60" height="45" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="300" y="170" width="60" height="55" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="520" y="150" width="80" height="60" fill="#162030" rx="1" opacity="0.5"/>
+  <rect x="640" y="160" width="90" height="65" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="300" y="400" width="80" height="70" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="420" y="420" width="55" height="80" fill="#162030" rx="1" opacity="0.5"/>
+  <rect x="510" y="400" width="90" height="60" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="640" y="410" width="80" height="75" fill="#162030" rx="1" opacity="0.5"/>
+  <rect x="730" y="400" width="55" height="70" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="300" y="490" width="60" height="80" fill="#162030" rx="1" opacity="0.5"/>
+  <rect x="530" y="500" width="75" height="75" fill="#162030" rx="1" opacity="0.6"/>
+  <rect x="650" y="510" width="100" height="70" fill="#162030" rx="1" opacity="0.5"/>
+
+  <!-- Leaflet attribution bar at bottom (realistic) -->
+  <rect x="265" y="570" width="535" height="30" fill="rgba(8,11,16,0.85)"/>
+  <text x="750" y="589" font-family="monospace" font-size="8" fill="#b8d4e8" text-anchor="end" opacity="0.6">© OpenStreetMap</text>
+
+  <!-- GPS trail path -->
+  <polyline points="470,430 475,410 480,390 488,370 490,345 492,320 495,300 498,280 500,255 502,235 505,215 508,200 510,185"
+    fill="none" stroke="#00c8f0" stroke-width="2" opacity="0.5" stroke-dasharray="6,3"/>
+
+  <!-- Rover position marker -->
+  <!-- Outer pulse ring -->
+  <circle cx="510" cy="185" r="18" fill="none" stroke="#00c8f0" stroke-width="1" opacity="0.3"/>
+  <circle cx="510" cy="185" r="12" fill="none" stroke="#00c8f0" stroke-width="1" opacity="0.5"/>
+  <!-- Marker body -->
+  <circle cx="510" cy="185" r="7" fill="#00c8f0" opacity="0.9" filter="url(#glow-blue)"/>
+  <circle cx="510" cy="185" r="3" fill="#e8f6ff"/>
+  <!-- Direction indicator (heading 247°) -->
+  <line x1="510" y1="185" x2="496" y2="179" stroke="#00c8f0" stroke-width="2" opacity="0.8"/>
+
+  <!-- Zoom controls (Leaflet style) -->
+  <rect x="280" y="70" width="26" height="26" fill="#0d1117" stroke="#527a9e" stroke-width="1" rx="2"/>
+  <text x="293" y="88" font-family="monospace" font-size="16" fill="#e8f6ff" text-anchor="middle" font-weight="300">+</text>
+  <rect x="280" y="96" width="26" height="26" fill="#0d1117" stroke="#527a9e" stroke-width="1" rx="2"/>
+  <text x="293" y="113" font-family="monospace" font-size="16" fill="#e8f6ff" text-anchor="middle" font-weight="300">−</text>
+
+  <!-- Scale bar (Leaflet style) -->
+  <rect x="700" y="546" width="60" height="2" fill="#b8d4e8" opacity="0.6"/>
+  <rect x="700" y="542" width="1" height="6" fill="#b8d4e8" opacity="0.6"/>
+  <rect x="760" y="542" width="1" height="6" fill="#b8d4e8" opacity="0.6"/>
+  <text x="730" y="540" font-family="monospace" font-size="8" fill="#b8d4e8" text-anchor="middle" opacity="0.6">100 m</text>
+
+  <!-- Scanlines overlay -->
+  <rect width="800" height="600" fill="url(#scanlines)"/>
+
+  <!-- Subtle vignette -->
+  <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="transparent"/>
+    <stop offset="100%" stop-color="rgba(0,0,0,0.35)"/>
+  </radialGradient>
+  <rect width="800" height="600" fill="url(#vignette)"/>
+</svg>

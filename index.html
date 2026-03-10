@@ -107,7 +107,7 @@
             filter: saturate(0.9);
         }
 
-        .tile:first-child {
+        .tile:first-child:nth-last-child(odd) {
             grid-column: 1 / -1;
             aspect-ratio: 16 / 7;
         }
@@ -197,6 +197,16 @@
                     <div class="overlay-icon"><i class="fas fa-robot"></i></div>
                     <div class="overlay-title" data-i18n="rover_title">Rover</div>
                     <div class="overlay-desc" data-i18n="rover_desc">Autonomous robotics project with custom electronics and programming</div>
+                </div>
+            </a>
+        </div>
+        <div class="tile">
+            <a href="live/index.html">
+                <img src="live/preview.svg" alt="Rover Live Monitor">
+                <div class="overlay">
+                    <div class="overlay-icon"><i class="fas fa-satellite-dish"></i></div>
+                    <div class="overlay-title" data-i18n="live_title">Rover Monitor</div>
+                    <div class="overlay-desc" data-i18n="live_desc">Real-time telemetry dashboard for the Mars rover — live GPS, drive state, proximity and stability over WebSocket</div>
                 </div>
             </a>
         </div>

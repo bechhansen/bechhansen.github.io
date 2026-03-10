@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ROVER — Remote Monitor</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div>
+      <div class="site-title">ROVER</div>
+      <div class="site-sub">REMOTE MONITOR</div>
+    </div>
+    <div class="header-right">
+      <div class="ws-status">
+        <span class="ws-indicator ws-off" id="ws-dot"></span>
+        <span class="ws-label" id="ws-label">CONNECTING</span>
+      </div>
+      <span class="header-clock" id="clock"></span>
+    </div>
+  </header>
+
+  <div class="main-layout">
+
+    <aside class="sidebar">
+
+      <div class="telem-card accent-red">
+        <div class="card-label">Locomotion</div>
+        <div class="state-badge state-idle" id="state">—</div>
+      </div>
+
+      <div class="telem-card accent-amber">
+        <div class="card-label">Drive</div>
+        <div class="nav-row">
+          <span class="nav-key">SPD</span>
+          <span class="telem-value small" id="speed_pct">—</span>
+          <span class="telem-unit">%</span>
+        </div>
+        <div class="nav-row">
+          <span class="nav-key">RAD</span>
+          <span class="telem-value small" id="radius-val">—</span>
+          <span class="telem-unit" id="radius-unit"></span>
+        </div>
+      </div>
+
+      <div class="telem-card accent-blue" id="prox-card">
+        <div class="card-label">Proximity</div>
+        <div class="telem-value" id="distance">—</div>
+        <div class="telem-unit">cm</div>
+        <div class="dist-bar-bg"><div class="dist-bar-fill" id="dist-bar"></div></div>
+        <div class="prox-alert-label">⚠ PROXIMITY ALERT</div>
+      </div>
+
+      <div class="telem-card accent-green" id="stab-card">
+        <div class="card-label">Stability</div>
+        <div class="attitude-row">
+          <div>
+            <div class="telem-sublabel">PITCH</div>
+            <div><span class="telem-value" id="pitch">—</span><span class="telem-unit">°</span></div>
+          </div>
+          <div>
+            <div class="telem-sublabel">ROLL</div>
+            <div><span class="telem-value" id="roll">—</span><span class="telem-unit">°</span></div>
+          </div>
+        </div>
+        <div class="stab-alert-label">⚠ STABILITY ALERT</div>
+      </div>
+
+      <div class="telem-card accent-cyan" id="gps-card">
+        <div class="card-label">GPS</div>
+        <div class="nav-row">
+          <span class="nav-key">FIX</span>
+          <span class="telem-value small gps-nofix" id="gps-fix-badge">NO FIX</span>
+        </div>
+        <div class="nav-row">
+          <span class="nav-key">POS</span>
+          <span class="telem-value small" id="nav-position">— / —</span>
+        </div>
+      </div>
+
+      <div class="telem-card accent-dim">
+        <div class="card-label">Navigation</div>
+        <div class="nav-row">
+          <span class="nav-key">SPD</span>
+          <span class="telem-value small" id="gps_speed">—</span>
+          <span class="telem-unit">km/h</span>
+        </div>
+        <div class="nav-row">
+          <span class="nav-key">CRS</span>
+          <span class="telem-value small" id="gps_course">—</span>
+          <span class="telem-unit">°</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <div class="map-panel">
+      <div id="map"></div>
+      <div class="map-no-gps" id="map-no-gps">⊕ &nbsp; AWAITING GPS FIX</div>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
