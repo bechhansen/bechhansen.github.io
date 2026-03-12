@@ -26,6 +26,11 @@ const translations = {
         wattzig_section_title: 'Open Zigbee Power Meter',
         wattzig_description: 'WattZig is an open-source smart power meter reader built on the ESP32-C6. It reads 3-phase electrical measurements — voltage, current, active and reactive power, and power factor — via the DLMS protocol and transmits them wirelessly over Zigbee. It integrates directly with Home Assistant via ZHA, making detailed energy monitoring available without any cloud dependency.',
         wattzig_github: 'View on GitHub',
+        rover_page_title: 'MARS ROVER',
+        rover_section_title: '1:4 Scale Perseverance Model',
+        rover_description: "A 1:4 scale RC model of NASA's Perseverance Mars rover, started in 2021 as a COVID-19 isolation project. Designed in Fusion 360 and 3D-printed in PLA on a Creality Ender-3 V2, it features a fully functional rocker-bogie suspension system with six independently driven wheels. The electronics are built around an ESP32 with custom motor drivers, servo control, GPS, an IMU, and a radio controller — making it a fully remote-controlled miniature rover.",
+        rover_timeline_title: 'Build Log',
+        rover_parts_title: 'Electronics & Parts',
     },
 
     zh: {
@@ -55,6 +60,11 @@ const translations = {
         wattzig_section_title: '开源 Zigbee 电力计',
         wattzig_description: 'WattZig 是基于 ESP32-C6 构建的开源智能电力计读取器。它通过 DLMS 协议读取三相电气测量值——电压、电流、有功和无功功率及功率因数——并通过 Zigbee 无线传输。它直接通过 ZHA 与 Home Assistant 集成，无需任何云依赖即可实现详细的能源监控。',
         wattzig_github: '在 GitHub 上查看',
+        rover_page_title: '火星漫游车',
+        rover_section_title: '1:4 比例毅力号模型',
+        rover_description: '这是一款 NASA 毅力号火星漫游车的 1:4 比例遥控模型，始于 2021 年新冠疫情隔离期间。使用 Fusion 360 设计，在 Creality Ender-3 V2 上以 PLA 材料 3D 打印完成。模型配备完整的摇臂-转向架悬挂系统和六个独立驱动轮，电子系统基于 ESP32，包含电机驱动、舵机控制、GPS、IMU 和无线电控制器。',
+        rover_timeline_title: '制作日志',
+        rover_parts_title: '电子元件与零件',
     },
 
     hi: {
@@ -84,6 +94,11 @@ const translations = {
         wattzig_section_title: 'ओपन Zigbee पावर मीटर',
         wattzig_description: 'WattZig ESP32-C6 पर निर्मित एक ओपन-सोर्स स्मार्ट पावर मीटर रीडर है। यह DLMS प्रोटोकॉल के माध्यम से 3-फेज विद्युत माप पढ़ता है — वोल्टेज, करंट, सक्रिय और प्रतिक्रियाशील शक्ति, और शक्ति कारक — और Zigbee पर वायरलेस तरीके से प्रसारित करता है। यह ZHA के माध्यम से Home Assistant के साथ सीधे एकीकृत होता है।',
         wattzig_github: 'GitHub पर देखें',
+        rover_page_title: 'मंगल रोवर',
+        rover_section_title: '1:4 स्केल पर्सिवरेंस मॉडल',
+        rover_description: 'यह NASA के पर्सिवरेंस मंगल रोवर का 1:4 स्केल RC मॉडल है, जिसे 2021 में COVID-19 आइसोलेशन प्रोजेक्ट के रूप में शुरू किया गया। Fusion 360 में डिज़ाइन किया गया और Creality Ender-3 V2 पर PLA में 3D प्रिंट किया गया। इसमें पूर्ण रोकर-बोगी सस्पेंशन सिस्टम और ESP32 आधारित इलेक्ट्रॉनिक्स हैं।',
+        rover_timeline_title: 'निर्माण लॉग',
+        rover_parts_title: 'इलेक्ट्रॉनिक्स और पुर्जे',
     },
 
     es: {
@@ -113,6 +128,11 @@ const translations = {
         wattzig_section_title: 'Medidor de Potencia Zigbee Abierto',
         wattzig_description: 'WattZig es un lector de medidor de potencia inteligente de código abierto construido sobre el ESP32-C6. Lee mediciones eléctricas trifásicas — tensión, corriente, potencia activa y reactiva, y factor de potencia — a través del protocolo DLMS y las transmite inalámbricamente por Zigbee. Se integra directamente con Home Assistant a través de ZHA, haciendo disponible el monitoreo detallado de energía sin dependencia de la nube.',
         wattzig_github: 'Ver en GitHub',
+        rover_page_title: 'ROVER MARCIANO',
+        rover_section_title: 'Modelo Perseverance a escala 1:4',
+        rover_description: 'Un modelo RC a escala 1:4 del rover marciano Perseverance de la NASA, iniciado en 2021 como proyecto de aislamiento por COVID-19. Diseñado en Fusion 360 e impreso en 3D en PLA con una Creality Ender-3 V2, cuenta con un sistema de suspensión rocker-bogie completamente funcional y electrónica basada en ESP32.',
+        rover_timeline_title: 'Registro de construcción',
+        rover_parts_title: 'Electrónica y componentes',
     },
 
     fr: {
@@ -142,6 +162,11 @@ const translations = {
         wattzig_section_title: "Compteur d'Énergie Zigbee Ouvert",
         wattzig_description: "WattZig est un lecteur de compteur d'énergie intelligent open-source construit sur l'ESP32-C6. Il lit les mesures électriques triphasées — tension, courant, puissance active et réactive, et facteur de puissance — via le protocole DLMS et les transmet sans fil via Zigbee. Il s'intègre directement avec Home Assistant via ZHA, permettant une surveillance énergétique détaillée sans dépendance au cloud.",
         wattzig_github: 'Voir sur GitHub',
+        rover_page_title: 'ROVER MARTIEN',
+        rover_section_title: 'Modèle Perseverance à l\'échelle 1:4',
+        rover_description: 'Un modèle RC à l\'échelle 1:4 du rover martien Perseverance de la NASA, débuté en 2021 comme projet d\'isolement COVID-19. Conçu sous Fusion 360 et imprimé en 3D en PLA sur une Creality Ender-3 V2, il dispose d\'un système de suspension rocker-bogie entièrement fonctionnel et d\'une électronique basée sur ESP32.',
+        rover_timeline_title: 'Journal de construction',
+        rover_parts_title: 'Électronique et composants',
     },
 
     ar: {
@@ -171,6 +196,11 @@ const translations = {
         wattzig_section_title: 'عداد طاقة Zigbee مفتوح',
         wattzig_description: 'WattZig هو قارئ عداد طاقة ذكي مفتوح المصدر مبني على ESP32-C6. يقرأ قياسات كهربائية ثلاثية الأطوار — الجهد والتيار والطاقة الفعالة والتفاعلية ومعامل الطاقة — عبر بروتوكول DLMS وينقلها لاسلكيًا عبر Zigbee. يتكامل مباشرة مع Home Assistant عبر ZHA، مما يتيح مراقبة الطاقة التفصيلية دون أي اعتماد على السحابة.',
         wattzig_github: 'عرض على GitHub',
+        rover_page_title: 'المركبة المريخية',
+        rover_section_title: 'نموذج بيرسيفيرانس بمقياس 1:4',
+        rover_description: 'نموذج RC بمقياس 1:4 لمركبة ناسا المريخية بيرسيفيرانس، بدأ في عام 2021 كمشروع عزل COVID-19. مصمم بـ Fusion 360 ومطبوع ثلاثي الأبعاد بـ PLA على Creality Ender-3 V2، يتميز بنظام تعليق rocker-bogie متكامل وإلكترونيات مبنية على ESP32.',
+        rover_timeline_title: 'سجل البناء',
+        rover_parts_title: 'الإلكترونيات والمكونات',
     },
 
     bn: {
@@ -200,6 +230,11 @@ const translations = {
         wattzig_section_title: 'ওপেন Zigbee পাওয়ার মিটার',
         wattzig_description: 'WattZig হল ESP32-C6-এ নির্মিত একটি ওপেন-সোর্স স্মার্ট পাওয়ার মিটার রিডার। এটি DLMS প্রোটোকলের মাধ্যমে ৩-ফেজ বৈদ্যুতিক পরিমাপ পড়ে — ভোল্টেজ, কারেন্ট, সক্রিয় ও প্রতিক্রিয়াশীল শক্তি এবং শক্তি গুণাঙ্ক — এবং Zigbee-এর মাধ্যমে ওয়্যারলেসভাবে প্রেরণ করে। এটি ZHA-এর মাধ্যমে সরাসরি Home Assistant-এর সাথে একীভূত হয়।',
         wattzig_github: 'GitHub-এ দেখুন',
+        rover_page_title: 'মঙ্গল রোভার',
+        rover_section_title: '১:৪ স্কেল পার্সিভিয়ারেন্স মডেল',
+        rover_description: 'এটি NASA-র পার্সিভিয়ারেন্স মঙ্গল রোভারের একটি ১:৪ স্কেল RC মডেল, যা ২০২১ সালে COVID-19 আইসোলেশন প্রকল্প হিসেবে শুরু হয়েছিল। Fusion 360-এ ডিজাইন করা এবং Creality Ender-3 V2-এ PLA-তে ৩D প্রিন্ট করা, এতে সম্পূর্ণ কার্যকরী রোকার-বোগি সাসপেনশন সিস্টেম এবং ESP32-ভিত্তিক ইলেকট্রনিক্স রয়েছে।',
+        rover_timeline_title: 'নির্মাণ লগ',
+        rover_parts_title: 'ইলেকট্রনিক্স ও যন্ত্রাংশ',
     },
 
     pt: {
@@ -229,6 +264,11 @@ const translations = {
         wattzig_section_title: 'Medidor de Energia Zigbee Aberto',
         wattzig_description: 'WattZig é um leitor de medidor de energia inteligente de código aberto construído no ESP32-C6. Lê medições elétricas trifásicas — tensão, corrente, potência ativa e reativa e fator de potência — via protocolo DLMS e as transmite sem fio pelo Zigbee. Integra-se diretamente ao Home Assistant via ZHA, tornando o monitoramento detalhado de energia disponível sem dependência de nuvem.',
         wattzig_github: 'Ver no GitHub',
+        rover_page_title: 'ROVER MARCIANO',
+        rover_section_title: 'Modelo Perseverance em escala 1:4',
+        rover_description: 'Um modelo RC em escala 1:4 do rover marciano Perseverance da NASA, iniciado em 2021 como projeto de isolamento COVID-19. Projetado no Fusion 360 e impresso em 3D em PLA numa Creality Ender-3 V2, conta com sistema de suspensão rocker-bogie totalmente funcional e eletrônica baseada em ESP32.',
+        rover_timeline_title: 'Registro de construção',
+        rover_parts_title: 'Eletrônica e componentes',
     },
 
     da: {
@@ -258,6 +298,11 @@ const translations = {
         wattzig_section_title: 'Åben Zigbee-wattmåler',
         wattzig_description: 'WattZig er en open-source smart wattmåler bygget på ESP32-C6. Den aflæser 3-fasede elektriske målinger — spænding, strøm, aktiv og reaktiv effekt samt effektfaktor — via DLMS-protokollen og transmitterer dem trådløst over Zigbee. Den integrerer direkte med Home Assistant via ZHA, hvilket gør detaljeret energiovervågning tilgængeligt uden cloud-afhængighed.',
         wattzig_github: 'Se på GitHub',
+        rover_page_title: 'MARS ROVER',
+        rover_section_title: '1:4 Perseverance-model',
+        rover_description: 'En 1:4 RC-model af NASAs Perseverance Mars-rover, startet i 2021 som et COVID-19-isolationsprojekt. Designet i Fusion 360 og 3D-printet i PLA på en Creality Ender-3 V2, med et fuldt funktionelt rocker-bogie-affjedringssystem og ESP32-baseret elektronik.',
+        rover_timeline_title: 'Byggelogg',
+        rover_parts_title: 'Elektronik og komponenter',
     },
 
     ur: {
@@ -287,5 +332,10 @@ const translations = {
         wattzig_section_title: 'اوپن Zigbee پاور میٹر',
         wattzig_description: 'WattZig ایک اوپن سورس سمارٹ پاور میٹر ریڈر ہے جو ESP32-C6 پر بنایا گیا ہے۔ یہ DLMS پروٹوکول کے ذریعے 3-فیز برقی پیمائش پڑھتا ہے — وولٹیج، کرنٹ، فعال اور رد عمل طاقت، اور طاقت عنصر — اور Zigbee کے ذریعے وائرلیس طریقے سے منتقل کرتا ہے۔ یہ ZHA کے ذریعے براہ راست Home Assistant کے ساتھ ضم ہوتا ہے۔',
         wattzig_github: 'GitHub پر دیکھیں',
+        rover_page_title: 'مریخ روور',
+        rover_section_title: '1:4 پیمانے پر پرسیویرنس ماڈل',
+        rover_description: 'یہ NASA کے پرسیویرنس مریخ روور کا 1:4 پیمانے کا RC ماڈل ہے، جو 2021 میں COVID-19 تنہائی منصوبے کے طور پر شروع ہوا۔ Fusion 360 میں ڈیزائن کیا گیا اور Creality Ender-3 V2 پر PLA میں 3D پرنٹ کیا گیا، اس میں مکمل rocker-bogie سسپنشن سسٹم اور ESP32 پر مبنی الیکٹرانکس ہیں۔',
+        rover_timeline_title: 'تعمیراتی لاگ',
+        rover_parts_title: 'الیکٹرانکس اور پرزے',
     },
 };

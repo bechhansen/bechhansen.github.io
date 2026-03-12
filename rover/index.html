@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Rover</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../common.css">
+    <script src="../translations.js"></script>
+    <style>
+        .hero-image {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.85);
+            margin-bottom: 60px;
+        }
+
+        /* Build log */
+        .build-log {
+            margin-bottom: 60px;
+        }
+
+        .build-log-title {
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--text-color);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin: 0 0 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .build-log-title i {
+            color: var(--accent-color);
+        }
+
+        .post {
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 3px;
+            background-color: #3B4252;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: baseline;
+            gap: 24px;
+            padding: 18px 24px 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .post-header:hover {
+            background-color: #434C5E;
+        }
+
+        .post-date {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            white-space: nowrap;
+            min-width: 80px;
+            font-weight: 400;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .post-title {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-color);
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+
+        .post-chevron {
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .post.open .post-chevron {
+            transform: rotate(180deg);
+        }
+
+        .post-body {
+            display: none;
+            padding: 0 24px 24px;
+        }
+
+        .post.open .post-body {
+            display: block;
+        }
+
+        .post-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .post-images img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.9);
+            cursor: zoom-in;
+            transition: filter 0.2s;
+        }
+
+        .post-images img:hover {
+            filter: saturate(1.1);
+        }
+
+        /* Single image: full width, taller */
+        .post-images.single img {
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+        }
+
+        /* YouTube thumbnails */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .video-thumb {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            background: #2E3440;
+            aspect-ratio: 4/3;
+            text-decoration: none;
+        }
+
+        .video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.85);
+            transition: filter 0.2s, transform 0.2s;
+        }
+
+        .video-thumb:hover img {
+            filter: saturate(1);
+            transform: scale(1.02);
+        }
+
+        .video-play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(46, 52, 64, 0.4);
+            transition: background 0.2s;
+        }
+
+        .video-thumb:hover .video-play {
+            background: rgba(46, 52, 64, 0.2);
+        }
+
+        .video-play i {
+            font-size: 3rem;
+            color: white;
+            opacity: 0.85;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+        }
+
+        /* Parts grid */
+        .section-header {
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--text-color);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin: 0 0 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header i {
+            color: var(--accent-color);
+        }
+
+        .parts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            margin-bottom: 40px;
+        }
+
+        .part-item {
+            background-color: #3B4252;
+            padding: 14px 20px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .part-item::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+            margin-bottom: 60px;
+        }
+
+        .external-link:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .parts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-header {
+                flex-wrap: wrap;
+            }
+
+            .post-images,
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-images img {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="back">BACK</span></a>
+        <h1 data-i18n="rover_page_title">MARS ROVER</h1>
+    </header>
+
+    <div class="main-content">
+        <img src="../IMG_5982.png" alt="Mars Rover" class="hero-image">
+
+        <div class="project-description">
+            <h2><i class="fas fa-robot"></i> <span data-i18n="rover_section_title">1:4 Scale Perseverance Model</span></h2>
+            <p data-i18n="rover_description">A 1:4 scale RC model of NASA's Perseverance Mars rover, started in 2021 as a COVID-19 isolation project. Designed in Fusion 360 and 3D-printed in PLA on a Creality Ender-3 V2, it features a fully functional rocker-bogie suspension system with six independently driven wheels. The electronics are built around an ESP32 with custom motor drivers, servo control, GPS, an IMU, and a radio controller — making it a fully remote-controlled miniature rover.</p>
+        </div>
+
+        <!-- Build log -->
+        <div class="build-log">
+            <h3 class="build-log-title"><i class="fas fa-history"></i> <span data-i18n="rover_timeline_title">Build Log</span></h3>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Mar 2021</span>
+                    <span class="post-title">Wooops. I bought a 3D printer</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_4811.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_4837.png" alt="" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Apr 2021</span>
+                    <span class="post-title">What to print?</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_4826.png" alt="Wheels" class="gallery-item">
+                        <img src="assets/IMG_4849.png" alt="Body" class="gallery-item">
+                        <img src="assets/IMG_4890.png" alt="Final result" class="gallery-item">
+                        <img src="assets/IMG_4892.png" alt="Final result" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Jul 2021</span>
+                    <span class="post-title">Frame</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5066.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5068.png" alt="" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Aug 2021</span>
+                    <span class="post-title">Design</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="video-grid">
+                        <a class="video-thumb" href="https://www.youtube.com/watch?v=BzeEvt5f_Hw" target="_blank">
+                            <img src="https://img.youtube.com/vi/BzeEvt5f_Hw/hqdefault.jpg" alt="Design video 1">
+                            <div class="video-play"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                        <a class="video-thumb" href="https://www.youtube.com/watch?v=ZZ4HGsxJuU0" target="_blank">
+                            <img src="https://img.youtube.com/vi/ZZ4HGsxJuU0/hqdefault.jpg" alt="Design video 2">
+                            <div class="video-play"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Sep 2021</span>
+                    <span class="post-title">Wheel mount</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5204.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5205.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5207.png" alt="" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Oct 2021</span>
+                    <span class="post-title">Electronics</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5212.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5235.png" alt="" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Nov 2021</span>
+                    <span class="post-title">Rocker-bogie differential</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/83AE168D-37EF-41AD-B43B-3E35689AC0E4.png" alt="" class="gallery-item">
+                        <img src="assets/69F8E1DB-9DD3-416C-8CD6-E4EF179A823A.png" alt="" class="gallery-item">
+                        <img src="assets/E7307BAD-C701-4480-8C93-A622EE15EA37.png" alt="" class="gallery-item">
+                        <img src="assets/62489B3D-448C-44E0-B746-55BAFDE9A9E3.png" alt="" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Nov 2021</span>
+                    <span class="post-title">Bottom plate</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5348.png" alt="Bottom plate" class="gallery-item">
+                        <img src="assets/IMG_5363.png" alt="Bottom plate" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Nov 2021</span>
+                    <span class="post-title">Rocker-bogie legs</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5360.png" alt="Parts" class="gallery-item">
+                        <img src="assets/IMG_5361.png" alt="Mounted" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Jan 2022</span>
+                    <span class="post-title">Printing the wheel mold</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="video-grid">
+                        <a class="video-thumb" href="https://www.youtube.com/watch?v=mB31Zgk0fEQ" target="_blank">
+                            <img src="https://img.youtube.com/vi/mB31Zgk0fEQ/hqdefault.jpg" alt="Printing the wheel mold video 1">
+                            <div class="video-play"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                        <a class="video-thumb" href="https://www.youtube.com/watch?v=P9p_h4zjc4Q" target="_blank">
+                            <img src="https://img.youtube.com/vi/P9p_h4zjc4Q/hqdefault.jpg" alt="Printing the wheel mold video 2">
+                            <div class="video-play"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Jan 2022</span>
+                    <span class="post-title">Casting the wheel silicone mold</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="video-grid">
+                        <a class="video-thumb" href="https://www.youtube.com/watch?v=nQBWKNykcYI" target="_blank">
+                            <img src="https://img.youtube.com/vi/nQBWKNykcYI/hqdefault.jpg" alt="Casting the wheel silicone mold">
+                            <div class="video-play"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Feb 2022</span>
+                    <span class="post-title">Wheel casting</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5467.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5481.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5475.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5483.png" alt="" class="gallery-item">
+                        <img src="assets/IMG_5482.png" alt="" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Feb 2022</span>
+                    <span class="post-title">Wheel spokes</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5705.png" alt="Spoke parts" class="gallery-item">
+                        <img src="assets/IMG_5704.png" alt="Glued spoke" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Jun 2022</span>
+                    <span class="post-title">Spokes and hub paint job</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5702.png" alt="Painted spokes" class="gallery-item">
+                        <img src="assets/IMG_5703.png" alt="Painted hub" class="gallery-item">
+                        <img src="assets/IMG_5706.png" alt="" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Jun 2022</span>
+                    <span class="post-title">Wheel assembly</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img src="assets/IMG_5717.png" alt="Wheels" class="gallery-item">
+                        <img src="assets/IMG_5720.png" alt="Wheels" class="gallery-item">
+                        <img src="assets/IMG_5725.png" alt="Progress" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Aug 2022</span>
+                    <span class="post-title">It's alive! (first test run)</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="video-grid">
+                        <a class="video-thumb" href="https://www.youtube.com/watch?v=9IcZKDsRfn0" target="_blank">
+                            <img src="https://img.youtube.com/vi/9IcZKDsRfn0/hqdefault.jpg" alt="First test run">
+                            <div class="video-play"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">May 2023</span>
+                    <span class="post-title">Outside test run</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="video-grid">
+                        <a class="video-thumb" href="https://www.youtube.com/watch?v=zTjj8BtpdeI" target="_blank">
+                            <img src="https://img.youtube.com/vi/zTjj8BtpdeI/hqdefault.jpg" alt="Outside test run">
+                            <div class="video-play"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Electronics & Parts -->
+        <h3 class="section-header"><i class="fas fa-microchip"></i> <span data-i18n="rover_parts_title">Electronics & Parts</span></h3>
+        <div class="parts-grid">
+            <div class="part-item">ESP32</div>
+            <div class="part-item">TB6612FNG motor drivers</div>
+            <div class="part-item">6× DC gear motors</div>
+            <div class="part-item">PCA9685 servo driver</div>
+            <div class="part-item">4× MG996R servos</div>
+            <div class="part-item">NEO-6M GPS</div>
+            <div class="part-item">Ultrasonic sensor</div>
+            <div class="part-item">MPU6050 IMU</div>
+            <div class="part-item">FLYSKY radio controller</div>
+            <div class="part-item">Fusion 360 (design)</div>
+            <div class="part-item">Creality Ender-3 V2 (printer)</div>
+            <div class="part-item">PLA plastic</div>
+        </div>
+    </div>
+
+    <footer data-i18n="footer_text">
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
+
+    <div id="lightbox">
+        <button id="lightbox-close">&times;</button>
+        <img src="" alt="">
+    </div>
+
+    <script src="../common.js"></script>
+    <script>
+        function togglePost(header) {
+            header.parentElement.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
