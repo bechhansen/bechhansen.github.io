@@ -359,6 +359,71 @@ body {
   animation: alert-blink 0.4s step-end infinite;
 }
 
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+    overflow: auto;
+  }
+
+  .site-header {
+    padding: 10px 14px;
+    align-items: center;
+  }
+
+  .site-title {
+    font-size: 1.1em;
+  }
+
+  .site-sub {
+    font-size: 0.45em;
+  }
+
+  .header-clock {
+    font-size: 0.6em;
+  }
+
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: visible;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .telem-card {
+    padding: 12px 14px;
+  }
+
+  .telem-value {
+    font-size: 1.5em;
+  }
+
+  .map-panel {
+    height: 50vh;
+    min-height: 280px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .site-sub {
+    display: none;
+  }
+}
+
 /* ─── ANIMATIONS ─── */
 @keyframes glow-pulse {
   0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--green); }
