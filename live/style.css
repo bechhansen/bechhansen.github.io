@@ -156,6 +156,7 @@ body {
   width: 100%;
   height: 100%;
   background: var(--panel2);
+  filter: brightness(0.45) contrast(1.3) saturate(0.7);
 }
 
 .map-no-gps {
@@ -192,8 +193,9 @@ body {
 .accent-dim   { border-left-color: var(--dim); }
 .accent-cyan  { border-left-color: #00e5b0; }
 
-.gps-fix   { color: var(--green); }
-.gps-nofix { color: var(--dim); }
+.gps-fix    { color: var(--green); }
+.gps-nofix  { color: var(--dim); }
+.gps-nodata { color: #ff9800; }
 
 .card-label {
   font-family: var(--title);

@@ -102,17 +102,23 @@ function updateUI(data) {
     'stability-warning', Math.abs(lastPitch) > 3 || Math.abs(lastRoll) > 3);
 
   // GPS
-  if (data.gps_valid !== undefined) {
-    const valid = data.gps_valid;
+  if (data.gps_fix !== undefined) {
+    const fix = data.gps_fix;
     const badge = document.getElementById('gps-fix-badge');
-    badge.textContent = valid ? 'FIX' : 'NO FIX';
-    badge.className = 'telem-value small ' + (valid ? 'gps-fix' : 'gps-nofix');
+    const labels  = { fix: 'FIX', nofix: 'NO FIX', nodata: 'NO DATA' };
+    const classes = { fix: 'gps-fix', nofix: 'gps-nofix', nodata: 'gps-nodata' };
+    badge.textContent = labels[fix] ?? fix;
+    badge.className = 'telem-value small ' + (classes[fix] ?? 'gps-nodata');
 
-    if (valid && data.gps_lat !== undefined && data.gps_lng !== undefined) {
+    if (fix === 'fix' && data.gps_lat !== undefined && data.gps_lng !== undefined) {
       document.getElementById('nav-position').textContent =
         parseFloat(data.gps_lat).toFixed(5) + ' / ' + parseFloat(data.gps_lng).toFixed(5);
       updateMap(parseFloat(data.gps_lat), parseFloat(data.gps_lng), parseFloat(data.gps_course));
     }
+  }
+
+  if (data.gps_sats !== undefined) {
+    document.getElementById('gps_sats').textContent = data.gps_sats;
   }
 
   if (data.gps_speed !== undefined) {
@@ -149,7 +155,7 @@ let map, roverMarker;
 
 function initMap() {
   map = L.map('map', { zoomControl: true, attributionControl: true });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 19,
