@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runner AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../common.css">
+    <script src="../translations.js"></script>
+    <style>
+        .project-links {
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .project-links a:hover {
+            opacity: 0.7;
+        }
+
+        .screenshot-container {
+            overflow: visible;
+        }
+
+        .screenshot-container .gallery-item {
+            filter: none;
+            transform: none !important;
+            width: auto;
+            max-width: 100%;
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="back">BACK</span></a>
+        <h1 data-i18n="runner_ai_page_title">RUNNER AI</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="project-description">
+            <h2><i class="fas fa-person-running"></i> <span data-i18n="runner_ai_section_title">AI Training Coach</span></h2>
+            <p data-i18n="runner_ai_description">Runner AI is an AI-powered training analysis platform for runners and endurance athletes. It automatically imports activities from Strava and uses a multi-agent AI system to analyse training trends, assess progress toward user-defined goals, and generate personalised coaching reports. Each report includes a trend analysis, goal alignment assessment, and a weekly training plan — with a Green/Yellow/Red status indicator showing the overall training trajectory. Planned workouts are automatically added as events in Google Calendar. Built with Quarkus, React, PostgreSQL, and Docker, with support for both Ollama (local LLMs) and the Anthropic Claude API.</p>
+            <div class="project-links">
+                <a href="https://github.com/bechhansen/runner-ai" target="_blank"><i class="fab fa-github"></i> <span data-i18n="runner_ai_github">View on GitHub</span></a>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="image-container screenshot-container">
+                <img src="screenshot.png" alt="Runner AI Dashboard" class="gallery-item">
+            </div>
+        </div>
+    </div>
+
+    <footer data-i18n="footer_text">
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
+
+    <div id="lightbox">
+        <button id="lightbox-close">&times;</button>
+        <img src="" alt="">
+    </div>
+
+    <script src="../common.js"></script>
+</body>
+</html>

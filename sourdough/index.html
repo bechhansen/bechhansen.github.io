@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourdough</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../common.css">
+    <script src="../translations.js"></script>
+    <style>
+        .build-log {
+            margin-bottom: 60px;
+        }
+
+        .build-log-title {
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--text-color);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin: 0 0 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .build-log-title i {
+            color: var(--accent-color);
+        }
+
+        .post {
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 3px;
+            background-color: #3B4252;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: baseline;
+            gap: 24px;
+            padding: 18px 24px 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .post-header:hover {
+            background-color: #434C5E;
+        }
+
+        .post-date {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            white-space: nowrap;
+            min-width: 80px;
+            font-weight: 400;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .post-title {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-color);
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+
+        .post-chevron {
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .post.open .post-chevron {
+            transform: rotate(180deg);
+        }
+
+        .post-body {
+            display: none;
+            padding: 0 24px 24px;
+        }
+
+        .post.open .post-body {
+            display: block;
+        }
+
+        .post-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .post-images img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.9);
+            cursor: zoom-in;
+            transition: filter 0.2s;
+        }
+
+        .post-images img:hover {
+            filter: saturate(1.1);
+        }
+
+        .post-note {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin: 14px 0 0;
+            font-style: italic;
+        }
+
+        .post-ingredients {
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .ingredients-title {
+            font-size: 0.75rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .ingredients-group {
+            margin-bottom: 10px;
+        }
+
+        .ingredients-group-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            opacity: 0.6;
+            margin-bottom: 4px;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 16px;
+        }
+
+        .ingredients-list li {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-color);
+        }
+
+        .ingredients-list li::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            .post-header {
+                flex-wrap: wrap;
+            }
+
+            .post-images {
+                grid-template-columns: 1fr;
+            }
+
+            .post-images img {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="back">BACK</span></a>
+        <h1 data-i18n="sourdough_page_title">SOURDOUGH</h1>
+    </header>
+
+    <div class="main-content">
+
+        <div class="project-description">
+            <h2><i class="fas fa-bread-slice"></i> <span data-i18n="sourdough_section_title">Baking Log</span></h2>
+            <p data-i18n="sourdough_description">A journal of sourdough experiments — starter maintenance, hydration ratios, and the slow craft of fermentation-driven bread.</p>
+        </div>
+
+        <div class="build-log">
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Nov 2023</span>
+                    <span class="post-title" data-i18n="sourdough_post_first_bake">First bake — Manitoba buns</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-images">
+                        <img data-src="https://baking.monz.dk/assets/2023-11-26/IMG_6705.jpeg" alt="Manitoba buns" class="gallery-item">
+                        <img data-src="https://baking.monz.dk/assets/2023-11-26/IMG_6706.jpeg" alt="Manitoba buns" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Dec 2023</span>
+                    <span class="post-title" data-i18n="sourdough_post_whole_wheat">Whole wheat buns</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <p class="post-note">Used 100% Whole wheat by mistake. Not the best result, but eatable.</p>
+                    <div class="post-images">
+                        <img data-src="https://baking.monz.dk/assets/2023-12-02/IMG_6718.jpeg" alt="Whole wheat buns" class="gallery-item">
+                        <img data-src="https://baking.monz.dk/assets/2023-12-02/IMG_6717.jpeg" alt="Whole wheat buns" class="gallery-item">
+                        <img data-src="https://baking.monz.dk/assets/2023-12-02/06844872-8A07-472B-A16D-BCC5C298D840.jpeg" alt="Whole wheat buns" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Jan 2024</span>
+                    <span class="post-title" data-i18n="sourdough_post_first_loaf">Baking the first loaf</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-ingredients">
+                        <div class="ingredients-title" data-i18n="sourdough_ingredients">Ingredients</div>
+                        <div class="ingredients-group">
+                            <div class="ingredients-group-label" data-i18n="sourdough_levain">Levain</div>
+                            <ul class="ingredients-list">
+                                <li>18g starter</li>
+                                <li>18g wheat flour</li>
+                                <li>18g rye flour</li>
+                                <li>36g water</li>
+                            </ul>
+                        </div>
+                        <div class="ingredients-group">
+                            <div class="ingredients-group-label" data-i18n="sourdough_autolyse">Autolyse</div>
+                            <ul class="ingredients-list">
+                                <li>493g Manitoba wheat (Valsemøllen)</li>
+                                <li>38g Spelt (Skærtoft Mølle)</li>
+                                <li>232g water</li>
+                            </ul>
+                        </div>
+                        <div class="ingredients-group">
+                            <div class="ingredients-group-label" data-i18n="sourdough_mix">Mix</div>
+                            <ul class="ingredients-list">
+                                <li>47g water</li>
+                                <li>10g salt</li>
+                                <li>90g sourdough</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-images">
+                        <img data-src="https://baking.monz.dk/assets/2024-01-07/IMG_6825.jpg" alt="First sourdough loaf" class="gallery-item">
+                        <img data-src="https://baking.monz.dk/assets/2024-01-07/IMG_6832.jpg" alt="First sourdough loaf crumb" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header" onclick="togglePost(this)">
+                    <span class="post-date">Jan 2024</span>
+                    <span class="post-title" data-i18n="sourdough_post_second_loaf">Second loaf</span>
+                    <i class="fas fa-chevron-down post-chevron"></i>
+                </div>
+                <div class="post-body">
+                    <div class="post-ingredients">
+                        <div class="ingredients-title" data-i18n="sourdough_ingredients">Ingredients</div>
+                        <div class="ingredients-group">
+                            <div class="ingredients-group-label" data-i18n="sourdough_levain">Levain</div>
+                            <ul class="ingredients-list">
+                                <li>21g starter</li>
+                                <li>21g wheat flour</li>
+                                <li>21g rye flour</li>
+                                <li>42g water</li>
+                            </ul>
+                        </div>
+                        <div class="ingredients-group">
+                            <div class="ingredients-group-label" data-i18n="sourdough_autolyse">Autolyse</div>
+                            <ul class="ingredients-list">
+                                <li>575g Tipo 00 (Valsemøllen)</li>
+                                <li>45g Spelt (Skærtoft Mølle)</li>
+                                <li>386g water</li>
+                            </ul>
+                        </div>
+                        <div class="ingredients-group">
+                            <div class="ingredients-group-label" data-i18n="sourdough_mix">Mix</div>
+                            <ul class="ingredients-list">
+                                <li>66g water</li>
+                                <li>12g salt</li>
+                                <li>105g sourdough</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-images">
+                        <img data-src="https://baking.monz.dk/assets/2024-01-13/IMG_6850.jpeg" alt="Second loaf" class="gallery-item">
+                        <img data-src="https://baking.monz.dk/assets/2024-01-13/IMG_6848.jpeg" alt="Second loaf" class="gallery-item">
+                        <img data-src="https://baking.monz.dk/assets/2024-01-13/IMG_6845.jpeg" alt="Second loaf crumb" class="gallery-item">
+                        <img data-src="https://baking.monz.dk/assets/2024-01-13/IMG_6844.jpeg" alt="Second loaf crumb" class="gallery-item">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer data-i18n="footer_text">
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
+
+    <div id="lightbox">
+        <button id="lightbox-close">&times;</button>
+        <img src="" alt="">
+    </div>
+
+    <script src="../common.js"></script>
+    <script>
+        function togglePost(header) {
+            const post = header.parentElement;
+            post.classList.toggle('open');
+            if (post.classList.contains('open')) {
+                post.querySelectorAll('img[data-src]').forEach(img => {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
