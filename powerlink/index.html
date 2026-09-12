@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerLink Splitter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../common.css">
+    <script src="../translations.js"></script>
+    <style>
+        .project-links {
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .project-links a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="back">BACK</span></a>
+        <h1 data-i18n="powerlink_page_title">POWERLINK SPLITTER</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="project-description">
+            <h2><i class="fas fa-code-branch"></i> <span data-i18n="powerlink_section_title">One Cable, Two Speakers</span></h2>
+            <p data-i18n="powerlink_description">PowerLink is Bang &amp; Olufsen's connector standard for active speakers: a single 8-pin DIN cable carrying left and right audio, a data line, and the control signal that wakes the speakers from standby. Because both channels travel down the same cable, a Beosound 9000 can feed two Beolab 8000s from one run — provided something splits it at the far end. This is a small hand-etched board that does exactly that: one input socket, two outputs, each speaker switched internally to left or right. The result is a single cable leaving the Beosound 9000 instead of two. The board was laid out in KiCad and etched at home in sodium persulfate.</p>
+        </div>
+
+        <div class="gallery">
+            <div class="image-container">
+                <img src="PowerLink.png" alt="PowerLink splitter PCB layout" class="gallery-item">
+            </div>
+            <div class="image-container">
+                <img src="IMG_9736.jpeg" alt="Assembled splitter with one input and two output cables" class="gallery-item">
+            </div>
+            <div class="image-container">
+                <img src="IMG_9737.jpeg" alt="PowerLink splitter board" class="gallery-item">
+            </div>
+        </div>
+    </div>
+
+    <footer data-i18n="footer_text">
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
+
+    <div id="lightbox">
+        <button id="lightbox-close">&times;</button>
+        <img src="" alt="">
+    </div>
+
+    <script src="../common.js"></script>
+</body>
+</html>

@@ -131,6 +131,21 @@
         .tile:hover .overlay {
             opacity: 1;
         }
+
+        .tile .wip-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            background: var(--accent-color);
+            color: #2E3440;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
         
         .tile .overlay-title {
             font-size: 1.5rem;
@@ -257,6 +272,27 @@
                     <div class="overlay-icon"><i class="fas fa-person-running"></i></div>
                     <div class="overlay-title" data-i18n="runner_ai_title">Runner AI</div>
                     <div class="overlay-desc" data-i18n="runner_ai_desc">AI-powered training coach for runners — activity analysis, goal tracking, and personalised coaching insights</div>
+                </div>
+            </a>
+        </div>
+        <div class="tile">
+            <a href="beobridge/index.html">
+                <img src="beobridge/IMG_9761.jpeg" alt="BeoBridge">
+                <div class="wip-badge" data-i18n="wip_badge">Work in progress</div>
+                <div class="overlay">
+                    <div class="overlay-icon"><i class="fas fa-tower-broadcast"></i></div>
+                    <div class="overlay-title" data-i18n="beobridge_title">BeoBridge</div>
+                    <div class="overlay-desc" data-i18n="beobridge_desc">Bang &amp; Olufsen Beo4 remote bridged to Home Assistant over MQTT, using a salvaged 455 kHz infrared receiver</div>
+                </div>
+            </a>
+        </div>
+        <div class="tile">
+            <a href="powerlink/index.html">
+                <img src="powerlink/PowerLink.png" alt="PowerLink Splitter">
+                <div class="overlay">
+                    <div class="overlay-icon"><i class="fas fa-code-branch"></i></div>
+                    <div class="overlay-title" data-i18n="powerlink_title">PowerLink Splitter</div>
+                    <div class="overlay-desc" data-i18n="powerlink_desc">A hand-built PowerLink splitter so a Beosound 9000 can drive two Beolab 8000 speakers down a single cable</div>
                 </div>
             </a>
         </div>

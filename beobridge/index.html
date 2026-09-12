@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeoBridge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../common.css">
+    <script src="../translations.js"></script>
+    <style>
+        .project-links {
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .project-links a:hover {
+            opacity: 0.7;
+        }
+
+        .wip-badge {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 14px;
+            background: var(--accent-color);
+            color: #2E3440;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="back">BACK</span></a>
+        <h1><span data-i18n="beobridge_page_title">BEOBRIDGE</span><span class="wip-badge" data-i18n="wip_badge">Work in progress</span></h1>
+    </header>
+
+    <div class="main-content">
+        <div class="project-description">
+            <h2><i class="fas fa-tower-broadcast"></i> <span data-i18n="beobridge_section_title">Beo4 Remote to Home Assistant</span></h2>
+            <p data-i18n="beobridge_description">BeoBridge connects a Bang &amp; Olufsen Beo4 remote to Home Assistant. B&amp;O uses a 455 kHz infrared carrier rather than the usual 38 kHz, so ordinary receivers see nothing at all — this project salvages the discrete 455 kHz front end from a B&amp;O LC2 light dimmer and drives it from an ESP32. Decoded commands are published over MQTT, where Home Assistant automations turn them into scenes and individual light control through Hue. Wi-Fi and broker settings are configured from a built-in web portal, opened by holding a button on the device.</p>
+            <div class="project-links">
+                <a href="https://github.com/bechhansen/BeoBridge" target="_blank"><i class="fab fa-github"></i> <span data-i18n="beobridge_github">View on GitHub</span></a>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="image-container">
+                <img src="IMG_9761.jpeg" alt="BeoBridge prototype: ESP32 and the salvaged B&amp;O LC2 infrared receiver on stripboard" class="gallery-item">
+            </div>
+            <div class="image-container">
+                <img src="config-portal.png" alt="BeoBridge configuration portal" class="gallery-item">
+            </div>
+        </div>
+    </div>
+
+    <footer data-i18n="footer_text">
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
+
+    <div id="lightbox">
+        <button id="lightbox-close">&times;</button>
+        <img src="" alt="">
+    </div>
+
+    <script src="../common.js"></script>
+</body>
+</html>
