@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflow Hotplate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../common.css">
+    <script src="../translations.js"></script>
+    <style>
+        .project-links {
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .project-links a:hover {
+            opacity: 0.7;
+        }
+
+        .wip-badge {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 14px;
+            background: var(--accent-color);
+            color: #2E3440;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-i18n="back">BACK</span></a>
+        <h1><span data-i18n="reflow_page_title">REFLOW HOTPLATE</span></h1>
+    </header>
+
+    <div class="main-content">
+        <div class="project-description">
+            <h2><i class="fas fa-fire"></i> <span data-i18n="reflow_section_title">Reflow Soldering on a Clothes Iron</span></h2>
+            <p data-i18n="reflow_description">Surface-mount boards are soldered by reflow: the board is heated along a profile — a preheat ramp, a soak, a short peak above the solder&#39;s melting point, then cooling. This project turns an old clothes iron upside down into a hotplate. An ESP32-C6 reads the soleplate with a contactless MLX90614 infrared sensor and switches the iron through an off-the-shelf Zigbee smart plug, so no mains wiring is needed. A model-based feedforward and PI controller follows the profile to within about 1–2 °C, even though the plug may only switch every two seconds and its radio replies are often lost to Wi-Fi. The web interface shows the run live — profile, temperature, phase and heater — and new firmware installs over Wi-Fi from GitHub releases.</p>
+            <div class="project-links">
+                <a href="https://github.com/bechhansen/reflow" target="_blank"><i class="fab fa-github"></i> <span data-i18n="reflow_github">View on GitHub</span></a>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="image-container">
+                <img src="ui-run.png" alt="Reflow controller web interface during a reflow run: profile, measured temperature, phases and heater strip" class="gallery-item">
+            </div>
+        </div>
+    </div>
+
+    <footer data-i18n="footer_text">
+        CRAFTED BY HAND, GUIDED BY CURIOSITY
+    </footer>
+
+    <div id="lightbox">
+        <button id="lightbox-close">&times;</button>
+        <img src="" alt="">
+    </div>
+
+    <script src="../common.js"></script>
+</body>
+</html>
